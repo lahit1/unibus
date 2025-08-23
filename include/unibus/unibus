@@ -1,0 +1,14 @@
+#include <iostream>
+#include <memory>
+
+class UniBus : std::enable_shared_from_this<UniBus> {
+	std::istream in;
+	std::ostream out;
+	UniBus(); // hide
+public:
+	static std::shared_ptr<UniBus> mk();
+	static std::shared_ptr<UniBus> mk(std::istream in, std::ostream out);
+
+	std::shared_ptr<UniBus> use(std::istream in);
+	std::shared_ptr<UniBus> use(std::ostream out);
+}
