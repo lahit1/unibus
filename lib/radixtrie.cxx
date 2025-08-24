@@ -6,19 +6,21 @@ namespace unibus {
 
 	namespace Radix {
 
-		void N::call(std::istream& in, std::ostream& out) {
+		bool N::call(std::istream& in, std::ostream& out) {
 			if(worker_func != nullptr) {
 				Req req{header, in};
 				Res res{out};
-				worker_func(req, res);
+				if(!worker_func(req, res)) return false;
 			}
 
 			for(auto t: targets)
 				if(t.first == in.peek())
-					t.second->call(in, out);
+					if(!t.second->call(in, out))
+						return false;
+			return true;
 		}
 
-		void N::use(const std::initializer_list<char> &header, void (*worker_func)(Req& req, Res& res)) {
+		void N::use(const std::initializer_list<char> &header, bool (*worker_func)(Req& req, Res& res)) {
 			std::unordered_map<char, std::shared_ptr<Radix::N>> *par = &targets;
 			std::shared_ptr<Radix::N> last_node;
 			for(char c: header) {
