@@ -22,7 +22,7 @@ namespace unibus {
 		};
 
 		class S : N { // Search Node
-			std::unordered_map<char, N> targets;
+			std::unordered_map<char, std::shared_ptr<N>> targets;
 
 			public:
 			void call(std::istream in, std::ostream out) override;
