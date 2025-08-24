@@ -14,7 +14,7 @@ namespace unibus {
 		return p;
 	}
 
-	void T::use(std::initializer_list<char> &header, void (*worker_func)(Req req, Res res)) {
+	void T::use(std::initializer_list<char> &header, void (*worker_func)(Req& req, Res& res)) {
 		std::unordered_map<char, std::shared_ptr<Radix::N>> *par = &rad_root.targets;
 		std::shared_ptr<Radix::N> last_node;
 		for(char c: header) {
