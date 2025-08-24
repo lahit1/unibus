@@ -14,7 +14,7 @@ namespace unibus {
 			std::unordered_map<char, std::shared_ptr<N>> targets;
 
 			public:
-			void call(std::istream in, std::ostream out) override;
+			void call(std::istream in, std::ostream out);
 			void add(const std::initializer_list<char>& data, void (*worker_func)(Req req, Res res));
 		};
 
