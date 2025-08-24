@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <initializer_list>
 
 namespace unibus {
 
@@ -9,19 +10,20 @@ namespace unibus {
 			virtual void call(std::istream in, std::ostream out) = 0;
 		};
 
-		class S : N { // Search Node
-			std::unordered_map<char, N> targets;
-
-			public:
-			void call(std::istream in, std::ostream out) override;
-			void add(N node);
-		};
 
 		class H : N { // Handler node
 			void (*worker_func)(Req req, Res res);
 
 			public:
 			void call(std::istream in, std::ostream out) override;
+		};
+
+		class S : N { // Search Node
+			std::unordered_map<char, N> targets;
+
+			public:
+			void call(std::istream in, std::ostream out) override;
+			void add(const std::initializer_list<char>& data, void (*worker_func)(Req req, Res res));
 		};
 
 	}
