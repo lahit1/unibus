@@ -4,8 +4,8 @@
 namespace unibus {
 
 struct Req {
-	std::vector<char> header;
-	std::istream in;
+	std::vector<char> &header;
+	std::istream &in;
 };
 
 }

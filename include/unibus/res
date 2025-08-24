@@ -3,7 +3,7 @@
 namespace unibus {
 
 struct Res {
-	std::ostream out;
+	std::ostream &out;
 };
 
 }
