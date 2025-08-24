@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <initializer_list>
+#include <vector>
 
 #include <unibus/req>
 #include <unibus/res>
@@ -10,6 +11,7 @@ namespace unibus {
 	namespace Radix {
 
 		struct N { // Radix node
+			std::vector<char> header;
 			void (*worker_func)(Req req, Res res);
 			std::unordered_map<char, std::shared_ptr<N>> targets;
 
