@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+
+namespace unibus {
+
+	namespace Radix {
+
+		struct N { // Node
+			virtual void call(std::istream in, std::ostream out) = 0;
+		};
+
+		struct S : N { // Search Node
+			std::unordered_map<char, N> targets;
+			void call(std::istream in, std::ostream out) override;
+		};
+
+		struct H : N { // Handler node
+			void (*worker_func)(Req req, Res res);
+			void call(std::istream in, std::ostream out) override;
+		};
+
+	}
+
+}
