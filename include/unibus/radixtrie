@@ -12,6 +12,7 @@ namespace unibus {
 		struct S : N { // Search Node
 			std::unordered_map<char, N> targets;
 			void call(std::istream in, std::ostream out) override;
+			void add(N node);
 		};
 
 		struct H : N { // Handler node
