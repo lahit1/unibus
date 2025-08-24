@@ -9,19 +9,8 @@ namespace unibus {
 
 	namespace Radix {
 
-		struct N { // Node
-			virtual void call(std::istream in, std::ostream out) = 0;
-		};
-
-
-		class H : N { // Handler node
+		class N { // Radix node
 			void (*worker_func)(Req req, Res res);
-
-			public:
-			void call(std::istream in, std::ostream out) override;
-		};
-
-		class S : N { // Search Node
 			std::unordered_map<char, std::shared_ptr<N>> targets;
 
 			public:
