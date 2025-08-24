@@ -5,8 +5,8 @@
 namespace unibus {
 
 class T : std::enable_shared_from_this<T> {
-	std::istream in;
-	std::ostream out;
+	std::shared_ptr<std::istream> in;
+	std::shared_ptr<std::ostream> out;
 
 	T(); // hide
 
@@ -14,7 +14,7 @@ class T : std::enable_shared_from_this<T> {
 
 public:
 	static std::shared_ptr<T> mk();
-	static std::shared_ptr<T> mk(std::istream in, std::ostream out);
+	static std::shared_ptr<T> mk(std::shared_ptr<std::istream> in, std::shared_ptr<std::ostream> out);
 
 	std::shared_ptr<T> use(std::istream in);
 	std::shared_ptr<T> use(std::ostream out);
