@@ -9,14 +9,18 @@ namespace unibus {
 			virtual void call(std::istream in, std::ostream out) = 0;
 		};
 
-		struct S : N { // Search Node
+		class S : N { // Search Node
 			std::unordered_map<char, N> targets;
+
+			public:
 			void call(std::istream in, std::ostream out) override;
 			void add(N node);
 		};
 
-		struct H : N { // Handler node
+		class H : N { // Handler node
 			void (*worker_func)(Req req, Res res);
+
+			public:
 			void call(std::istream in, std::ostream out) override;
 		};
 
