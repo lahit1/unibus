@@ -10,7 +10,7 @@ class T : std::enable_shared_from_this<T> {
 
 	T(); // hide
 
-	Radix:S rad_root;
+	Radix::S rad_root;
 
 public:
 	static std::shared_ptr<T> mk();
@@ -20,6 +20,6 @@ public:
 	std::shared_ptr<T> use(std::ostream out);
 
 	void use(std::initializer_list<char> header, void (*worker_func)(Req req, Res res));
-}
+};
 
 }
