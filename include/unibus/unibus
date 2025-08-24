@@ -4,7 +4,7 @@
 
 namespace unibus {
 
-class T : std::enable_shared_from_this<UniBus> {
+class T : std::enable_shared_from_this<T> {
 	std::istream in;
 	std::ostream out;
 	T(); // hide
