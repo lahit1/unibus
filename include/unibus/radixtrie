@@ -12,11 +12,11 @@ namespace unibus {
 
 		struct N { // Radix node
 			std::vector<char> header;
-			void (*worker_func)(Req req, Res res);
+			void (*worker_func)(Req& req, Res& res);
 			std::unordered_map<char, std::shared_ptr<N>> targets;
 
 			void call(std::istream& in, std::ostream& out);
-			void add(const std::initializer_list<char>& data, void (*worker_func)(Req req, Res res));
+			void add(const std::initializer_list<char>& data, void (*worker_func)(Req& req, Res& res));
 		};
 
 	}
