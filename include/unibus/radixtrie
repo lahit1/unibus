@@ -2,6 +2,9 @@
 #include <vector>
 #include <initializer_list>
 
+#include <unibus/req>
+#include <unibus/res>
+
 namespace unibus {
 
 	namespace Radix {

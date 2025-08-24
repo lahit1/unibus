@@ -1,0 +1,9 @@
+#include <ostream>
+
+namespace unibus {
+
+struct Res {
+	std::ostream out;
+};
+
+}

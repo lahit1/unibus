@@ -1,0 +1,11 @@
+#include <istream>
+#include <vector>
+
+namespace unibus {
+
+struct Req {
+	std::vector<char> header;
+	std::istream in;
+};
+
+}
