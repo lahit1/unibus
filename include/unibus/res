@@ -1,18 +1,11 @@
 #pragma once
 
 #include <ostream>
-#include <nlohmann/json.hpp>
-
-#include <unibus/headers>
 
 namespace unibus {
 
 struct Res {
 	std::ostream &out;
-
-	bool buffer(const void **buff, int size);
-	bool json(const nlohmann::json *o);
-	bool string(const std::string *s);
 };
 
 }

@@ -1,9 +1,0 @@
-namespace unibus {
-
-typedef enum {
-	buffer = 0,
-	string,
-	json
-} headers;
-
-}

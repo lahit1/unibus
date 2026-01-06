@@ -2,17 +2,12 @@
 
 #include <istream>
 #include <vector>
-#include <nlohmann/json.hpp>
 
 namespace unibus {
 
 struct Req {
 	std::vector<char> &header;
 	std::istream &in;
-
-	bool buffer(void **buff);
-	bool json(nlohmann::json *o);
-	bool string(std::string *s);
 };
 
 }

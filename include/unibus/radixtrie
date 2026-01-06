@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <initializer_list>
 #include <vector>
+#include <memory>
 
 #include <unibus/req>
 #include <unibus/res>
