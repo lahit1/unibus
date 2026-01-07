@@ -2,7 +2,9 @@
 
 #include <iostream>
 #include <memory>
-#include <unibus/radixtrie>
+#include <trie.h>
+#include <unibus/req>
+#include <unibus/res>
 
 namespace unibus {
 
@@ -12,7 +14,7 @@ class T : std::enable_shared_from_this<T> {
 
 	T(); // hide
 
-	Radix::N rad_root;
+	trie::trie_map<char, bool (*)(Req &req, Res &res)> rad_root;
 
 public:
 	static std::shared_ptr<T> mk();

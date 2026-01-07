@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -O2 -fPIC -I include
+CXXFLAGS = -std=c++17 -Wall -Wextra -O2 -fPIC -I include -I trie/src/
 LDFLAGS = -shared
 
 SRCS = $(shell find lib/ -type f -name "*.cxx")
