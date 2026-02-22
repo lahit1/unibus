@@ -15,6 +15,7 @@ namespace unibus {
 	}
 
 	void T::use(const std::initializer_list<char> &header, bool (*worker_func)(Req& req, Res& res)) {
-		rad_root.use(header, worker_func);
+		std::string headerStr(header.begin(), header.end());
+		rad_root.insert(headerStr, worker_func);
 	}
 }

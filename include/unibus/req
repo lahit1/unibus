@@ -6,7 +6,7 @@
 namespace unibus {
 
 struct Req {
-	std::vector<char> &header;
+	std::string header;
 	std::istream &in;
 };
 
